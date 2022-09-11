@@ -1,0 +1,24 @@
+.bttn {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #004ffa;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.select_level {
+    margin: 30px 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}

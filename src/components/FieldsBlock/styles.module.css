@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.blue {
+    background-color: #004ffa;
+}
