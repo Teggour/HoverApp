@@ -1,15 +1,24 @@
 import React from "react";
-import isEqual from "lodash.isequal";
-import uniqWith from "lodash.uniqwith";
+
+import { isActiveField, getActiveFieldIndex } from "../../utills/activeField";
+import filterByIndex from "../../utills/filterByIndex";
 
 import styles from "./styles.module.css";
 
 const FieldsBlock = ({ size, selectedFields, setSelectedFields }) => {
-	const handleMouseEnter = (i, j) => () =>
-		setSelectedFields(uniqWith([...selectedFields, [i, j]], isEqual));
+	const handleMouseEnter = (i, j) => () => {
+		const currFieldIndex = getActiveFieldIndex(selectedFields, [i, j]);
+
+		const newSelectedFields =
+			currFieldIndex === -1
+				? [...selectedFields, [i, j]]
+				: filterByIndex(selectedFields, currFieldIndex);
+
+		setSelectedFields(newSelectedFields);
+	};
 
 	const getClassName = (i, j) =>
-		selectedFields.find((el) => isEqual(el, [i, j]))
+		isActiveField(selectedFields, [i, j])
 			? `${styles.cell} ${styles.blue}`
 			: styles.cell;
 
